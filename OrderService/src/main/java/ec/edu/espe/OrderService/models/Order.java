@@ -35,6 +35,9 @@ public class Order {
     @Column(nullable = false)
     private OrderStatus status;
 
+    @Column(length = 500)
+    private String rejectionReason;
+
     @Embedded
     private ShippingAddress shippingAddress;
 

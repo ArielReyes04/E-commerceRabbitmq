@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 public class OrderCreatedRequestDto {
@@ -14,10 +15,10 @@ public class OrderCreatedRequestDto {
     private String eventType;
 
     @NotBlank(message = "El Order ID es requerido")
-    private String orderId;
+    private UUID orderId;
 
     @NotBlank(message = "El Correlation ID es requerido")
-    private String correlationId;
+    private UUID correlationId;
 
     @Valid // Valida los objetos dentro de la lista
     @NotNull(message = "La lista de items no puede ser nula")
@@ -26,7 +27,7 @@ public class OrderCreatedRequestDto {
     @Data
     public static class OrderItemRequestDto {
         @NotBlank(message = "El ID del producto es requerido")
-        private String productId;
+        private UUID productId;
 
         @Min(value = 1, message = "La cantidad debe ser al menos 1")
         private int quantity;

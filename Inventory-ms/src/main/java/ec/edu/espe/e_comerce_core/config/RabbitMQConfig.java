@@ -1,5 +1,6 @@
 package ec.edu.espe.e_comerce_core.config;
 
+import org.hibernate.Remove;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -54,6 +55,7 @@ public class RabbitMQConfig {
         return mapper;
     }
 
+    @SuppressWarnings("removal")
     @Bean
     public MessageConverter messageConverter(ObjectMapper objectMapper) {
         // Configuramos el conversor para usar el ObjectMapper personalizado

@@ -9,9 +9,9 @@ import java.util.UUID;
 public class OrderItemRequestDto {
 
     @NotNull(message = "El productId es obligatorio")
-    private UUID productId; // [cite: 63]
+    private UUID productId;
 
     @NotNull(message = "La cantidad es obligatoria")
     @Min(value = 1, message = "La cantidad mínima debe ser 1")
-    private Integer quantity; // [cite: 66]
+    private Integer quantity;
 }

@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
@@ -16,7 +18,7 @@ public class ProductController {
 
     // Endpoint 1: Consultar stock de un producto
     @GetMapping("/{productId}/stock")
-    public ResponseEntity<ProductStockResponseDto> getProductStock(@PathVariable String productId) {
+    public ResponseEntity<ProductStockResponseDto> getProductStock(@PathVariable UUID productId) {
         try {
             ProductStockResponseDto response = inventoryService.getProductStock(productId);
             return ResponseEntity.ok(response);

@@ -1,3 +1,35 @@
 spring:
   application:
-    name: OrderService
+    name: order_service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_order
+    username: postgres
+    password: admin123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin123
+
+custom:
+  rabbitmq:
+    exchange: orders-exchange
+    queue:
+      order-created: q.order-created
+    routing-key:
+      order-created: order.created
+      stock-reserved: stock.reserved
+      stock-rejected: stock.rejected
+
+server:
+  port: 8086

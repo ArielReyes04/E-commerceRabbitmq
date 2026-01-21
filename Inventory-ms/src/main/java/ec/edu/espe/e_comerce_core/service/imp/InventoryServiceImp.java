@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -69,7 +70,7 @@ public class InventoryServiceImp implements InventoryService {
     }
 
     @Transactional(readOnly = true)
-    public ProductStockResponseDto getProductStock(String productId) {
+    public ProductStockResponseDto getProductStock(UUID productId) {
         return stockRepository.findById(productId)
                 .map(inventoryMapper::toProductStockResponse)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado: " + productId));
