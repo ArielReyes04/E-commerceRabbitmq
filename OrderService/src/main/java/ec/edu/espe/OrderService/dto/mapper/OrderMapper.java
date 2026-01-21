@@ -32,7 +32,7 @@ public class OrderMapper {
         // Mapear los items y asignar la relación bidireccional
         List<OrderItem> items = dto.getItems().stream().map(itemDto ->
                 OrderItem.builder()
-                        .productId(java.util.UUID.fromString(itemDto.getProductId()))
+                        .productId(itemDto.getProductId())
                         .quantity(itemDto.getQuantity())
                         .order(order) // Importante: Vincular con el padre
                         .build()
