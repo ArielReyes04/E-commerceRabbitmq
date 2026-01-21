@@ -18,7 +18,7 @@ public class OrderMapper {
     // Convierte de RequestDTO a Entidad Order
     public Order toEntity(OrderRequestDto dto) {
         Order order = Order.builder()
-                .customerId(java.util.UUID.fromString(dto.getCustomerId()))
+                .customerId(dto.getCustomerId())
                 .paymentReference(dto.getPaymentReference())
                 .status(OrderStatus.PENDING) // Estado inicial obligatorio [cite: 77-78]
                 .shippingAddress(ShippingAddress.builder()
