@@ -11,7 +11,7 @@ import java.util.UUID;
 public class OrderCreatedEvent {
     private String eventType; // "OrderCreated"
     private UUID orderId;
-    private String correlationId;
+    private UUID correlationId;
     private LocalDateTime createdAt;
     private List<OrderItemEvent> items;
 
