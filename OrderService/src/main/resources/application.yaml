@@ -25,7 +25,7 @@ custom:
   rabbitmq:
     exchange: orders-exchange
     queue:
-      order-created: q.order-created
+      order-replies: q.order-replies
     routing-key:
       order-created: order.created
       stock-reserved: stock.reserved
